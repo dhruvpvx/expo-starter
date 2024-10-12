@@ -3,6 +3,7 @@ import React from 'react';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { AppLink, AppLinkProps } from './app-link';
+import { AppLoadingWrapper } from './app-loading-wrapper';
 
 interface Props extends AppLinkProps {
   title: string;
@@ -11,6 +12,7 @@ interface Props extends AppLinkProps {
   icon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   style?: StyleProp<ViewStyle>;
+  loading?: boolean;
 }
 
 export const AppButton = ({ ...props }: Props) => {
@@ -19,10 +21,16 @@ export const AppButton = ({ ...props }: Props) => {
   });
 
   return (
-    <AppLink {...props} style={[styles.button, props.style]}>
-      {props.icon}
-      <Text style={styles.text}>{props.title}</Text>
-      {props.rightIcon}
+    <AppLink
+      {...props}
+      disabled={props.loading || props.disabled}
+      style={[styles.button, props.style]}
+    >
+      <AppLoadingWrapper loading={props.loading} color={styles.text.color}>
+        {props.icon}
+        <Text style={styles.text}>{props.title}</Text>
+        {props.rightIcon}
+      </AppLoadingWrapper>
     </AppLink>
   );
 };

@@ -39,6 +39,7 @@ const stylesheet = createStyleSheet((theme) => ({
     gap: theme.spacing.md,
   },
   labelInput: {
+    borderWidth: 1,
     borderRadius: theme.radius.sm,
     fontFamily: theme.fonts.medium,
     fontSize: theme.scale(14),
