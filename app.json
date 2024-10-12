@@ -1,12 +1,11 @@
 {
   "expo": {
-    "name": "HashTag",
-    "slug": "hashtag",
-    "scheme": "hashtag",
+    "name": "Demo",
+    "slug": "demo",
+    "scheme": "demo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/resources/icon.png",
-    "userInterfaceStyle": "light",
     "splash": {
       "image": "./src/assets/resources/splash.png",
       "resizeMode": "contain",
@@ -14,14 +13,29 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.hashtag"
+      "bundleIdentifier": "com.demo",
+      "googleServicesFile": "./src/assets/firebase/GoogleService-Info.plist"
     },
     "android": {
+      "googleServicesFile": "./src/assets/firebase/google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/resources/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.demo"
     },
-    "plugins": ["expo-router"]
+    "plugins": [
+      "expo-router",
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ]
   }
 }

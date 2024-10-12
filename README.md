@@ -6,3 +6,4 @@
 - Expo Router (Tabs)
 - Common Components
 - Assets
+- Basic Authentication (Firebase Phone OTP login)
